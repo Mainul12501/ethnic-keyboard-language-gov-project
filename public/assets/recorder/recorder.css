@@ -1,0 +1,116 @@
+.recorder{
+    /* position: absolute;
+
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: center;
+    -webkit-justify-content: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+    -webkit-box-align: center;
+    -webkit-align-items: center;
+        -ms-flex-align: center;
+            align-items: center;
+    height: 100%;
+    width: 100%;
+    margin: 0; */
+}
+.holder {
+    /*background-color: #3a9157;*/
+   /* background-image: -webkit-gradient(linear, left bottom, left top, from(#4c474c), to(#141414));
+    background-image: -o-linear-gradient(bottom, #4c474c 0%, #141414 100%);
+    background-image: linear-gradient(0deg, #4c474c 0%, #141414 100%);*/
+   /* border-radius: 50px;
+    margin: auto;
+    margin-top: 30px;*/
+    /*display: none;*/
+}
+[data-role="controls"] > .record {
+    /*margin: 50px auto;*/
+    /*margin-bottom: 33px;*/
+    /*margin-top: 20px;*/
+    margin-bottom: 10px;
+    outline: none;
+    display: block;
+    border: none;
+    background-color: #F9F9F9;
+    background-image: -webkit-gradient(linear, left bottom, left top, from(#F9F9F9), to(#F9F9F9));
+    background-image: -o-linear-gradient(bottom, #F9F9F9 0%, #F9F9F9 100%);
+    background-image: linear-gradient(0deg, #F9F9F9 0%, #F9F9F9 100%);
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    /*text-indent: -1000em;*/
+    cursor: pointer;
+    /*-webkit-box-shadow: 0px 3px 1px 2px rgb(0 0 0 / 34%) inset, 0px 0px 0px 3px #fff, 0px 0px 0px 8px #333;*/
+    /*-webkit-box-shadow: 0px 5px 0px 5px #333;*/
+    /*-webkit-box-shadow: 0px 5px 5px 2px rgba(0,0,0,0.3) inset,
+        0px 0px 0px 30px #fff, 0px 0px 0px 35px #333;*/
+         /*   box-shadow: 0px 5px 5px 2px rgba(0,0,0,0.3) inset,
+        0px 0px 0px 30px #fff, 0px 0px 0px 35px #333;*/
+    box-shadow: 0px 3px 5px -1px rgb(0 0 0 / 20%), 0px 6px 10px 0px rgb(0 0 0 / 14%), 0px 1px 18px 0px rgb(0 0 0 / 12%);
+}
+[data-role="controls"] > .record:hover {
+    background-color: rgba(93, 90, 93, 0.64);
+    background-image: -webkit-gradient(linear, left bottom, left top, from(#F9F9F9), to(#bbb9b9));
+    background-image: -o-linear-gradient(bottom, #bbb9b9 0%, #bbb9b9 100%);
+    background-image: linear-gradient(0deg, #F9F9F9 0%, #bbb9b9 100%);
+}
+[data-role="controls"] > .record[data-recording="true"] {
+    background-color: #8f3934;
+    background-image: -webkit-gradient(linear, left bottom, left top, from(#8f3934), to(#8f3934));
+    background-image: -o-linear-gradient(bottom, #8f3934 0%, #b30003 100%);
+    background-image: linear-gradient(0deg, #8f3934 0%, #8f3934 100%);
+
+}
+[data-role="controls"] > .record[data-recording="true"] i {
+
+}
+
+[data-role="recordings"] > .record-files {
+    width: auto;
+    height: auto;
+    /*padding: 20px;*/
+    display: flex;
+    /*justify-content: center;*/
+}
+[data-role="recordings"] > .record-files > audio {
+    outline: none;
+}
+[data-role="recordings"] > .record-files > a {
+    display: inline-block;
+    text-align: center;
+    font-size: 15px;
+    line-height: 50px;
+    vertical-align: middle;
+    width: 50px;
+    height: 50px;
+    border-radius: 5px;
+    color: black;
+    font-weight: bold;
+    text-decoration: underline;
+    /*background-color: #3a9157;*/
+   /* background-image: -webkit-gradient(linear, left bottom, left top, from(#ff0000), to(#ff6666));
+    background-image: -o-linear-gradient(bottom, #ff0000 0%, #ff6666 100%);
+    background-image: linear-gradient(0deg, #ff0000 0%, #ff6666 100%);*/
+    float: right;
+    /*margin-left: 20px;*/
+    cursor: pointer;
+}
+[data-role="recordings"] > .record-files > a:hover {
+    text-decoration: none;
+}
+[data-role="recordings"] > .record-files > a:active {
+    /*background-image: -webkit-gradient(linear, left top, left bottom, from(#ff0000), to(#ff6666));
+    background-image: -o-linear-gradient(top, #ff0000 0%, #ff6666 100%);
+    background-image: linear-gradient(180deg, #ff0000 0%, #ff6666 100%);*/
+}
+.record{
+    padding: 5px;
+}
+.record i{
+    padding: 13px;
+}
+

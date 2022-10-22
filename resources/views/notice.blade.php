@@ -1,0 +1,102 @@
+@extends('layouts.app')
+
+@section('content')
+<div class="container">
+    <div class="row justify-content-center">
+        <div class="col-md-8">
+
+                <button onclick="initFirebaseMessagingRegistration()""
+                    class="btn btn-primary btn-flat">notification
+                </button>
+
+            <div class="card mt-3">
+                <div class="card-body">
+                    @if (session('status'))
+                    <div class="alert alert-success" role="alert">
+                        {{ session('status') }}
+                    </div>
+                    @endif
+
+                    <form action="{{ route('send.notification') }}" method="POST">
+                        @csrf
+                        <div class="form-group">
+                            <label>Message Title</label>
+                            <input type="text" class="form-control" name="title">
+                        </div>
+                        <div class="form-group">
+                            <label>Message Body</label>
+                            <textarea class="form-control" name="body"></textarea>
+                        </div>
+                        <button type="submit" class="btn btn-success btn-block">Send Notification</button>
+                    </form>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script src="https://www.gstatic.com/firebasejs/7.23.0/firebase.js"></script>
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js" type="text/javascript"></script>
+<script>
+
+    var firebaseConfig = {
+        apiKey: "AIzaSyAf8VbB9KukpAFQc-PS1djtgnibSqjvtQ4",
+        authDomain: "push-notification-1cd0f.firebaseapp.com",
+        projectId: "push-notification-1cd0f",
+        storageBucket: "push-notification-1cd0f.appspot.com",
+        messagingSenderId: "1027263277408",
+        appId: "1:1027263277408:web:d92c18d701a17a4505d605",
+        measurementId: "G-9Q38M0HCYE"
+    };
+
+    firebase.initializeApp(firebaseConfig);
+    const messaging = firebase.messaging();
+
+    function initFirebaseMessagingRegistration() {
+            messaging
+            .requestPermission()
+            .then(function () {
+                return messaging.getToken()
+            })
+            .then(function(token) {
+                console.log(token);
+
+                $.ajaxSetup({
+                    headers: {
+                        'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+                    }
+                });
+
+                $.ajax({
+                    url: '{{ route("store.token") }}',
+                    type: 'POST',
+                    data: {
+                        token: token
+                    },
+                    dataType: 'JSON',
+                    success: function (response) {
+                        alert('Token saved successfully.');
+                    },
+                    error: function (err) {
+                        console.log('User Chat Token Error'+ err);
+                    },
+                });
+
+            }).catch(function (err) {
+                console.log('User Chat Token Error'+ err);
+            });
+     }
+
+    messaging.onMessage(function(payload) {
+        const noteTitle = payload.notification.title;
+        const noteOptions = {
+            body: payload.notification.body,
+            icon: payload.notification.icon,
+        };
+        new Notification(noteTitle, noteOptions);
+    });
+
+</script>
+@endsection
+{{-- @endsection --}}
